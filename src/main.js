@@ -1,61 +1,61 @@
 import React from 'react';
 import { Text, Button, View } from 'react-native';
 
-import { createAppContainer } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator, ActivityIndicator, StatusBar, AsyncStorage } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Ionicons } from '@expo/vector-icons'; // 6.2.2
 
-import { Header } from 'react-native-elements';
+// auth stack screens
+import AuthLanding from './scenes/Authentication/AuthLandingScreen';
+import CreateAccount from './scenes/Authentication/CreateAccountScreen';
+import ForgotPassword from './scenes/Authentication/ForgotPasswordScreen';
+import ResetPassword from './scenes/Authentication/ResetPasswordScreen';
+import SignIn from './scenes/Authentication/SignInScreen';
 
-class HomeScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, alignItems: 'center' }}>
-        <Header
-          leftComponent={{ icon: 'menu', color: '#fff' }}
-          centerComponent={{ text: 'Home', style: { color: '#fff' } }}
-          rightComponent={{ icon: 'home', color: '#fff' }}
-          containerStyle={{
-            backgroundColor: 'green',
-            justifyContent: 'space-around',
-          }}
-        />
-        <Text>Home screen!</Text>
-      </View>
-    );
-  }
-}
 
-class NFCScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>NFC screen!</Text>
-      </View>
-    );
-  }
-}
+// main Tabs
+import Home from './scenes/MainTabs/HomeScreen';
+import NFC from './scenes/MainTabs/NFCScreen';
+import Map from './scenes/MainTabs/MapScreen';
+import ClampManagement from './scenes/MainTabs/ClampManagementScreen';
 
-class MapScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>map screen!</Text>
-      </View>
-    );
-  }
-}
+import Example from "./example";
+import Exampletwo from "./exampletwo";
 
-class ClampManagementScreen extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Clamp screen!</Text>
-      </View>
-    );
+const AuthStack = createStackNavigator({
+  Landing: {
+    screen: AuthLanding,
+    navigationOptions: {
+      headerTitle: "Landing"
+    }
+  },
+  SignIn: {
+    screen: SignIn,
+    navigationOptions: {
+      headerTitle: "Sign In"
+    }
+  },
+  CreateAccount: {
+    screen: CreateAccount,
+    navigationOptions: {
+      headerTitle: "Create Account"
+    }
+  },
+  ForgotPassword: {
+    screen: ForgotPassword,
+    navigationOptions: {
+      headerTitle: "Forgot Password"
+    }
+  },
+  ResetPassword: {
+    screen: ResetPassword,
+    navigationOptions: {
+      headerTitle: "Reset Password"
+    }
   }
-}
+});
+
 
 class IconWithBadge extends React.Component {
   render() {
@@ -115,23 +115,35 @@ const getTabBarIcon = (navigation, focused, tintColor) => {
   return <IconComponent name={iconName} size={25} color={tintColor} />;
 };
 
-export default createAppContainer(
-  createBottomTabNavigator(
-    {
-      Home: { screen: HomeScreen },
-      NFC: { screen: NFCScreen },
-      Map: { screen: MapScreen },
-      Clamps: { screen: ClampManagementScreen }
+const AppTabs = createBottomTabNavigator(
+  {
+    Home: { screen: Home },
+    NFC: { screen: NFC },
+    Map: { screen: Map },
+    Clamps: { screen: ClampManagement }
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) =>
+        getTabBarIcon(navigation, focused, tintColor),
+    }),
+    tabBarOptions: {
+      activeTintColor: 'darkcyan',
+      inactiveTintColor: 'lightgray',
     },
-    {
-      defaultNavigationOptions: ({ navigation }) => ({
-        tabBarIcon: ({ focused, tintColor }) =>
-          getTabBarIcon(navigation, focused, tintColor),
-      }),
-      tabBarOptions: {
-        activeTintColor: 'darkcyan',
-        inactiveTintColor: 'lightgray',
-      },
-    }
-  )
+  }
+)
+
+const MainSwitch = createSwitchNavigator(
+  {
+    App: AppTabs,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'Auth',
+  }
+);
+
+export default createAppContainer(
+  MainSwitch
 );
