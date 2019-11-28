@@ -13,6 +13,4 @@ class ClampManagementScreen extends React.Component {
   }
 }
 
-const clampmanagement = ClampManagementScreen;
-
-export default clampmanagement;
+export default ClampManagementScreen;

@@ -13,6 +13,4 @@ class NFCScreen extends React.Component {
   }
 }
 
-const NFC = NFCScreen;
-
-export default NFC;
+export default NFCScreen;

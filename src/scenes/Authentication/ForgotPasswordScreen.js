@@ -21,6 +21,4 @@ class ForgotPasswordScreen extends React.Component {
     );
   }
 }
-const forgotpassword = ForgotPasswordScreen;
-
-export default forgotpassword;
+export default ForgotPasswordScreen;

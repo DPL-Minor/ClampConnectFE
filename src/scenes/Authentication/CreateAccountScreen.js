@@ -21,6 +21,5 @@ class CreateAccountScreen extends React.Component {
     );
   }
 }
-const createaccount = CreateAccountScreen;
 
-export default createaccount;
+export default CreateAccountScreen;

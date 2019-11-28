@@ -13,6 +13,4 @@ class MapScreen extends React.Component {
   }
 }
 
-const map = MapScreen;
-
-export default map;
+export default MapScreen;

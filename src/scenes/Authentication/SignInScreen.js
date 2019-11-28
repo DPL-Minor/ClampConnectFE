@@ -21,6 +21,4 @@ class SignInScreen extends React.Component {
     );
   }
 }
-const signin = SignInScreen;
-
-export default signin;
+export default SignInScreen;

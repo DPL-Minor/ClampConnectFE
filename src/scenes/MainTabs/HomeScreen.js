@@ -21,6 +21,5 @@ class HomeScreen extends React.Component {
     );
   }
 }
-const home = HomeScreen;
+export default HomeScreen;
 
-export default home;

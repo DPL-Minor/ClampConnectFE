@@ -21,6 +21,5 @@ class ResetPasswordScreen extends React.Component {
     );
   }
 }
-const resetpassword = ResetPasswordScreen;
 
-export default resetpassword;
+export default ResetPasswordScreen;
