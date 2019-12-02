@@ -4,6 +4,8 @@ import deviceStorage from '../../Services/deviceStorage';
 
 import { Header } from 'react-native-elements';
 
+import ConnectedPostList from '../../containers/ConnectedPostList'
+
 class AuthLandingScreen extends React.Component {
   render() {
     return (
@@ -32,6 +34,9 @@ class AuthLandingScreen extends React.Component {
           onPress={() => deviceStorage.loadJWT('key')}
           title="Retrieve token"
         />
+        <ConnectedPostList />
+        <ConnectedPostList />
+
       </View>
     );
   }

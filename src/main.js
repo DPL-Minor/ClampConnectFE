@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, Button, View } from 'react-native';
 
+
+
 import { createAppContainer, createSwitchNavigator, ActivityIndicator, StatusBar, AsyncStorage } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
@@ -22,6 +24,8 @@ import ClampManagement from './scenes/MainTabs/ClampManagementScreen';
 
 import Example from "./example";
 import Exampletwo from "./exampletwo";
+
+
 
 const AuthStack = createStackNavigator({
   Landing: {
