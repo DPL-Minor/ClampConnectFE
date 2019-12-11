@@ -1,15 +1,17 @@
 import React from 'react';
 import Main from './main.js';
 
-// redux
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import appReducer from './redux/reducers'
 import { createPost } from './redux/actions'
 import { createUser } from './redux/actions'
 
-// create Redux Store
-let store = createStore(appReducer)
+import DevTools from './containers/DevTools.jsx'
+import { persistState } from 'redux-devtools'
+
+// create Redux store
+import configureStore from './redux/store'
+
+const store = configureStore()
 
 store.dispatch(createPost('dan', 'hello world'))
 setTimeout(() => store.dispatch(createPost('barry', 'hi!')), 2000)
