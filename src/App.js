@@ -6,12 +6,15 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import appReducer from './redux/reducers'
 import { createPost } from './redux/actions'
+import { createUser } from './redux/actions'
 
 // create Redux Store
 let store = createStore(appReducer)
 
 store.dispatch(createPost('dan', 'hello world'))
 setTimeout(() => store.dispatch(createPost('barry', 'hi!')), 2000)
+
+store.dispatch(createUser('Wisse', 'Voortman'))
 
 console.log('initial state:', store.getState())
 

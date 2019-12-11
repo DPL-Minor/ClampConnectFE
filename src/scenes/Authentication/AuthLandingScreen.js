@@ -35,7 +35,6 @@ class AuthLandingScreen extends React.Component {
           title="Retrieve token"
         />
         <ConnectedPostList />
-        <ConnectedPostList />
 
       </View>
     );

@@ -1,15 +1,15 @@
 import React from 'react'
 import Post from './Post.jsx'
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
-const PostList = ({ posts }) =>
-  <Text>
+const PostList = ({ posts, createPost, editPost }) =>
+  <View>
     {posts.map(
-      (post, i) =>
-        <Text key={i.toString()}>
-          <Post {...post} />
-        </Text>
+      (post, index) =>
+
+        <Post key={index} onPress={() => editPost(index, post.text + ', updated')} {...post} />
+
     )}
-  </Text>
+  </View>
 
 export default PostList
