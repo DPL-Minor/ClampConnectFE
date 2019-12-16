@@ -8,8 +8,10 @@ import ConnectedPostList from '../../containers/ConnectedPostList'
 import ConnectedLoading from '../../containers/ConnectedLoading'
 import ConnectedErrorMessage from '../../containers/ConnectedErrorMessage'
 
-import { fetchUser, fetchUsertwo, createUser, login } from '../../redux/actions'
+import { fetchUser, createUser, login } from '../../redux/actions'
 
+import { connectionState } from '../../redux/actions'
+import NetInfo from "@react-native-community/netinfo"
 
 import store from '../../redux/store'
 
@@ -56,6 +58,13 @@ class AuthLandingScreen extends React.Component {
         <Button
           onPress={() => console.log('initial state:', store.getState())}
           title="Log State"
+        />
+        <Button
+          onPress={() => store.dispatch(connectionState(NetInfo.fetch().then(state => {
+            console.log("Connection type", state.type);
+            console.log("Is connected?", state.isConnected);
+          })))}
+          title="test NetInfo"
         />
         <ConnectedPostList />
         <ConnectedLoading />
