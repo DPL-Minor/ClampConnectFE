@@ -22,16 +22,12 @@ import NFC from './scenes/MainTabs/NFCScreen';
 import Map from './scenes/MainTabs/MapScreen';
 import ClampManagement from './scenes/MainTabs/ClampManagementScreen';
 
-import Example from "./example";
-import Exampletwo from "./exampletwo";
-
-
-
 const AuthStack = createStackNavigator({
   Landing: {
     screen: AuthLanding,
     navigationOptions: {
-      headerTitle: "Landing"
+      headerTitle: "Landing",
+      header: null
     }
   },
   SignIn: {

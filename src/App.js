@@ -3,20 +3,18 @@ import Main from './main.js';
 
 import { Provider } from 'react-redux'
 import { createPost } from './redux/actions'
-import { createUser } from './redux/actions'
+import { fetchUser, createUser } from './redux/actions'
 
 import DevTools from './containers/DevTools.jsx'
 import { persistState } from 'redux-devtools'
 
 // create Redux store
-import configureStore from './redux/store'
+import store from './redux/store'
 
-const store = configureStore()
+store.dispatch(createPost('user 1', 'POST ONE'))
+store.dispatch(createPost('USER 2', 'POST TWO'))
 
-store.dispatch(createPost('dan', 'hello world'))
-setTimeout(() => store.dispatch(createPost('barry', 'hi!')), 2000)
-
-store.dispatch(createUser('Wisse', 'Voortman'))
+//store.dispatch(createUser('USER1', 'LAST NAME ONE'))
 
 console.log('initial state:', store.getState())
 

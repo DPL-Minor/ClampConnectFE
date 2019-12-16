@@ -8,7 +8,6 @@ const enhancer = compose(
   middleware,
   //persistState(getSessionKey())
 )
+const store = createStore(appReducer, {}, middleware)
 
-export default function confiureStore(initialstate) {
-  return createStore(appReducer, initialstate, middleware)
-}
+export default store

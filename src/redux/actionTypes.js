@@ -2,13 +2,20 @@
 export const CREATE_POST = 'CREATE_POST'
 export const EDIT_POST = 'EDIT_POST'
 
-// filter
-export const SET_FILTER = 'SET_FILTER'
+// authentication
+export const LOGIN_REQUEST = 'LOGIN_REQUEST'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAILURE = 'LOGIN_FAILURE'
 
 // users
+export const FETCH_USER_REQUEST = 'FETCH_USER_REQUEST'
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
+export const FETCH_USER_FAILURE = 'FETCH_USER_FAILURE'
+
+export const CREATE_USER_REQUEST = 'CREATE_USER_REQUEST'
+export const CREATE_USER_SUCCESS = 'CREATE_USER_SUCCESS'
+export const CREATE_USER_FAILURE = 'CREATE_USER_FAILURE'
+
 export const CREATE_USER = 'CREATE_USER'
 export const EDIT_USER = 'EDIT_USER'
 export const DELETE_USER = 'DELETE_USER'
-
-
-
